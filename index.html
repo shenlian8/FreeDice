@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	      <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+	      <script src="js/jquery.min.js"></script>
+	      <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script type="text/javascript" src="cordova.js"></script> 
+        <script type="text/javascript" src="js/index.js"></script>
+        <title>Free Dice</title>
+    </head>
+    <body>
+      
+      <div data-role="page" data-fullscreen="true" id="home">
+            	      
+      	<div data-role="header" data-position="fixed">
+      		<h1>Free Dice</h1>
+      		<a href="#setting" id="ButtonGoSetting" data-role="button" data-icon="gear" class="ui-btn-right" data-iconpos="notext"></a>
+      	</div><!-- /header --> 
+
+		<div data-role="navbar" id="Navbar">
+		  <ul>
+			<li><a href="" data-icon="plus" id="AddDice"></a></li>
+			<li><a href="" data-icon="minus" id="DelDice"></a></li>
+			<li><a href="" data-icon="delete" id="DelAll"></a></li>
+			<li><a href="#setting" data-icon="gear"></a></li>
+		  </ul>
+		</div> 
+	    
+      	<div role="main" class="ui-content content" id="home_content">     	      	
+      	
+			<div class="ui-grid-a">
+				<div class="ui-block-a"><div class="ui-bar"><div class="dice"></div></div></div>
+				<div class="ui-block-b"><div class="ui-bar"></div></div>
+			</div><!-- /grid-a -->								
+			
+      	</div><!-- /content -->
+
+     
+      </div><!-- /page -->
+
+      <div data-role="page" id="setting">
+
+		<div data-role="header">
+			<a href="#home" data-role="button" data-icon="home" data-iconpos="notext"></a>
+			<h1>Setting</h1>
+		</div><!-- /header -->      
+
+      	<div role="main" class="ui-content">
+      	      	
+			<div data-role="fieldcontain">
+			  <fieldset data-role="controlgroup">
+				  <label for="vib">vibration</label>
+				  <input type="checkbox" name="vib" id="vib" value="vib" checked>
+				  <label for="navbar">Navbar</label>
+				  <input type="checkbox" name="navbar" id="navbar" value="navbar" checked>
+				  <div id="div-slider">
+				  <label for="CountOfDice">Count of Dice</label>
+				  <input type="range" name="CountOfDice" id="CountOfDice" value="1" min="1" max="10">
+				  </div>    				  
+			  </fieldset>  			  
+			</div>
+
+		<ul data-role="listview"  id="DiceList">
+		  <li data-role="list-divider">Dice List</li>
+		  <li class="LiSetDice"><a class="ButtonSetDice" id="0">Dice 1</a></li>
+		</ul> 
+
+      	</div><!-- /content -->  
+                 		      
+      </div><!-- /page -->
+
+      <div data-role="page" data-fullscreen="true" id="DiceSetting">
+
+      	<div data-role="header" data-position="fixed">
+      		<h1 id="DiceSettingHeader"></h1>
+      		<a href="#setting" data-role="button" data-icon="arrow-l" data-iconpos="notext"></a>
+      	</div><!-- /header -->
+	    
+      	<div role="main" class="ui-content content" id="DiceSetting_content">  	
+      								
+			<div data-role="fieldcontain">
+			  <fieldset data-role="controlgroup">
+				<a data-role="button" id="GroupNormalDice" class="ButtonSelectGroup" value="false">NormalDice</a>	
+				<label for="d0"><div id="img0" class="DiceSetting" style="background-image : url('img/dice_point/dado_1.png');"></div></label>
+				<input type="checkbox" id="d0" class="GroupNormalDice DiceItem" value="img0">
+				<label for="d1"><div id="img1" class="DiceSetting" style="background-image : url('img/dice_point/dado_2.png');"></div></label>
+				<input type="checkbox" id="d1" class="GroupNormalDice DiceItem" value="img1">   
+				<label for="d2"><div id="img2" class="DiceSetting" style="background-image : url('img/dice_point/dado_3.png');"></div></label>
+				<input type="checkbox" id="d2" class="GroupNormalDice DiceItem" value="img2">   
+				<label for="d3"><div id="img3" class="DiceSetting" style="background-image : url('img/dice_point/dado_4.png');"></div></label>
+				<input type="checkbox" id="d3" class="GroupNormalDice DiceItem" value="img3">   
+				<label for="d4"><div id="img4" class="DiceSetting" style="background-image : url('img/dice_point/dado_5.png');"></div></label>
+				<input type="checkbox" id="d4" class="GroupNormalDice DiceItem" value="img4">   
+				<label for="d5"><div id="img5" class="DiceSetting" style="background-image : url('img/dice_point/dado_6.png');"></div></label>
+				<input type="checkbox" id="d5" class="GroupNormalDice DiceItem" value="img5"> 
+				<a data-role="button" id="GroupNumber" class="ButtonSelectGroup" value="false">Number</a>  
+				<a data-role="button" id="GroupPlusMinus" class="ButtonSelectGroup" value="false">+ - x</a> 
+				<a data-role="button" id="GroupColor" class="ButtonSelectGroup" value="false">Color</a>   				  				  				  				  				     				  
+			  </fieldset>  			  
+			</div>
+						
+      	</div><!-- /content -->
+
+     
+      </div><!-- /page -->            
+            
+    </body>
+</html>

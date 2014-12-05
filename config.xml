@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="de.shenlian.freedice" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>FreeDice</name>
+    <description>
+        Free Dice        
+    </description>
+    <author email="FreeDice@shenlian.de" href="http://freedice.shenlian.de">
+        S&S Lab, shenlian.de
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="Orientation" value="portrait" />
+  	<gap:splash src="splash.png" />
+  	<preference name="SplashScreenDelay" value="15000" />    
+    <icon src="s.png" />    
+</widget>
