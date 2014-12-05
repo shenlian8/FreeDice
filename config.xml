@@ -7,10 +7,5 @@
     <author email="FreeDice@shenlian.de" href="http://freedice.shenlian.de">
         Lian Shen, shenlian.de, S&S Lab
     </author>
-    <gap:platform name="android" />
-    <gap:platform name="winphone" />    
-    <preference name="orientation" value="portrait" />
-  	<gap:splash src="splash.png" />
-    <preference name="splash-screen-duration" value="15000"/>   
-    <icon src="s.png" />    
+  
 </widget>
