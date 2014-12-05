@@ -4,7 +4,7 @@ id="de.shenlian.freedice"
 version="0.1.0" 
 versionCode = "10"
 xmlns="http://www.w3.org/ns/widgets" 
-xmlns:gap   = "http://phonegap.com/ns/1.0>
+xmlns:gap   = "http://phonegap.com/ns/1.0" >
 
     <name>Free Dice</name>
     <description>
