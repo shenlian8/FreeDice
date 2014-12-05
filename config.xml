@@ -1,6 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.shenlian.freedice" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>FreeDice</name>
+<widget 
+id="de.shenlian.freedice" 
+version="0.1.0" 
+versionCode = "10"
+xmlns="http://www.w3.org/ns/widgets" 
+xmlns:cdv="http://cordova.apache.org/ns/1.0">
+
+    <name>Free Dice</name>
     <description>
         Free Dice        
     </description>
