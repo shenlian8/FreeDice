@@ -10,7 +10,7 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="Orientation" value="portrait" />
-  	<gap:splash src="splash.png" />
+  	<splash src="splash.png" />
   	<preference name="SplashScreenDelay" value="15000" />    
     <icon src="s.png" />    
 </widget>
