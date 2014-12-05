@@ -13,12 +13,12 @@ xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <author email="FreeDice@shenlian.de" href="http://freedice.shenlian.de">
         Lian Shen, shenlian.de, S&amp;S Lab
     </author>
-    <platform name="android" />
-    <platform name="winphone" />    
+    <gap:platform name="android" />
+    <gap:platform name="winphone" />    
     <preference name="orientation" value="portrait" />
-  	<splash src="splash.png" />
+  	<gap:splash src="splash.png" />
     <preference name="splash-screen-duration" value="15000"/>   
     <icon src="s.png" />  
-    <plugin name="org.apache.cordova.splashscreen" />
-    <plugin name="org.apache.cordova.vibration" /> 
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <gap:plugin name="org.apache.cordova.vibration" /> 
 </widget>
