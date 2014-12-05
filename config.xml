@@ -11,7 +11,7 @@ xmlns:cdv="http://cordova.apache.org/ns/1.0">
         Free Dice        
     </description>
     <author email="FreeDice@shenlian.de" href="http://freedice.shenlian.de">
-        Lian Shen, shenlian.de, S&S Lab
+        Lian Shen, shenlian.de, S&amp;S Lab
     </author>
     <gap:platform name="android" />
     <gap:platform name="winphone" />    
