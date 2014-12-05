@@ -9,8 +9,6 @@
     </author>
     <gap:platform name="android" />
     <gap:platform name="winphone" />    
-    <content src="index.html" />
-    <access origin="*" />
     <preference name="orientation" value="portrait" />
   	<gap:splash src="splash.png" />
     <preference name="splash-screen-duration" value="15000"/>   
