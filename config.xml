@@ -16,9 +16,11 @@ xmlns:gap   = "http://phonegap.com/ns/1.0" >
     <gap:platform name="android" />
     <gap:platform name="winphone" />    
     <preference name="orientation" value="portrait" />
-  	<gap:splash src="splash.png" /> 
-    <gap:splash src="splash.png" gap:platform="android" />
-    <gap:splash src="splash.png" gap:platform="winphone" />
+    <gap:splash src="res/splash_ld.png" gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="res/splash_md.png" gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="res/splash_hd.png" gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="res/splash_xh.png" gap:platform="android" gap:qualifier="port-xhdpi" />
+    <gap:splash src="res/splash.png" gap:platform="winphone" />    
     <preference name="splash-screen-duration" value="15000"/>   
     <icon src="s.png" />  
     <gap:plugin name="org.apache.cordova.splashscreen" />
