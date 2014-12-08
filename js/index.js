@@ -178,7 +178,7 @@ var dice = {
             this.AddOneDice();
             $('.dice').last().css('background-image', $('#' + Config.DiceFace[$('.dice').length-1][0]).css('background-image')); 
         }      
-        $('#CountOfDice').val(Config.DiceFace.length);
+        $('#CountOfDice').val(Config.DiceFace.length).slider('refresh');
 
         $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
     },
