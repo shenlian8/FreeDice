@@ -251,7 +251,7 @@ var dice = {
           {
             alert('Failed because: ' + message);
           }, 
-          JSON.stringify(option));    
+          option);    
     },
         
     /*=============================================================
