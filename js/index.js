@@ -225,26 +225,16 @@ var dice = {
     GetImage: function()
     {
         var option;
-        if ($(this).val() == 'CAMERA') 
-        {
-            option = {
-                quality: 75,
-                destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                saveToPhotoAlbum: true
-            };
-        } else
-        {
-            option = {
-                quality: 75,
-                destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-                saveToPhotoAlbum: true
-            };          
-        }
+
+        option = {
+            quality: 75,
+            destinationType: Camera.DestinationType.FILE_URI,
+            saveToPhotoAlbum: true
+        };
+        option.sourceType = parseInt($(this).attr('value'));
 
          alert(JSON.stringify(option));
-        navigator.camera.getPicture(function (imageURI) {
+         navigator.camera.getPicture(function (imageURI) {
             alert('Image: ' + imageURI);
           }, 
           function (message) 
