@@ -235,13 +235,19 @@ var dice = {
 
          alert(JSON.stringify(option));
          navigator.camera.getPicture(function (imageURI) {
-            alert('Image: ' + imageURI);
+            dice.AddOneCustomImage(imageURI);
           }, 
           function (message) 
           {
             alert('Failed because: ' + message);
           }, 
-          option);    
+          option);     
+    },
+
+    AddOneCustomImage: function(imageURI)
+    {
+        alert('Image: ' + imageURI);
+        $('#custom_div').append('<label for="c0"><div id="cus0" class="DiceSetting" style="background-image : url(' + imageURI + ');"></div></label><input type="checkbox" id="c0" class="GroupNormalDice DiceItem" value="cus0">');   
     },
         
     /*=============================================================
