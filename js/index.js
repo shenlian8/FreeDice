@@ -238,7 +238,7 @@ var dice = {
           { 
             quality: 50,
             destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
             saveToPhotoAlbum: true,
             allowEdit: true 
           });
