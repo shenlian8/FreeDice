@@ -136,7 +136,8 @@ var dice = {
         $('#div-slider').change(this.SetCountOfDice);
         $('#0').on('tap', this.SetOneDice);
         $('.ButtonSelectGroup').on('tap', this.SelectGroup);
-        $('.DiceItem').change(this.DiceItemChanged);   
+        $('.DiceItem').change(this.DiceItemChanged); 
+        $('.AddCustomImage').on('tap', this.GetImage);  
     },
 
     /*=============================================================
@@ -180,7 +181,8 @@ var dice = {
         }      
         $('#CountOfDice').val(Config.DiceFace.length).slider('refresh');
 
-        $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
+        // $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
+        this.RunDice;
         
     },
 
@@ -220,14 +222,10 @@ var dice = {
         // alert(JSON.stringify(Config)); 
         dice.RefreshNavbar();    
     },                  
-    
-    /*=============================================================
-    // RunDice
-    =============================================================*/    
-    RunDice: function() 
+
+    GetImage: function()
     {
-        
-        alert('Take a photo! ');
+        // alert('Take a photo! ');
         navigator.camera.getPicture(function (imageURI) {
             alert('Image: ' + imageURI);
           }, 
@@ -236,25 +234,38 @@ var dice = {
             alert('Failed because: ' + message);
           }, 
           { 
-            quality: 50,
+            quality: 75,
             destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-            saveToPhotoAlbum: true,
-            allowEdit: true 
-          });
-                  
+            sourceType: $(this).val(),
+            saveToPhotoAlbum: true
+          });    
+    },
+        
+    /*=============================================================
+    // RunDice
+    =============================================================*/    
+    RunDice: function() 
+    {
+                          
         $('.dice').each(function()
         {
-            var CountOfDice = parseInt(Math.random() * (8 - 1 + 1) + 1);
-            for (var i=0; i<CountOfDice; i++)
-            { 
-                $(this).fadeIn(130, function(){
-                    // var index = parseInt(Math.random() * (6 - 1 + 1) + 1);
-                    // $(this).css('background-image', "url('img/dice_point/dado_" + index + ".png')");
-                    var index = parseInt(Math.random() * (Config.DiceFace[$('.dice').index($(this))].length));
-                    //alert($('#' + Config.DiceFace[$('.dice').index($(this))][index]).css('background-image'));  
-                    $(this).css('background-image', $('#' + Config.DiceFace[$('.dice').index($(this))][index]).css('background-image'));                   
-                    }).delay(130);
+            if ($('.dice').index($(this))].length > 0) 
+            {      
+              var CountOfDice = parseInt(Math.random() * (8 - 1 + 1) + 1);
+              for (var i=0; i<CountOfDice; i++)
+              { 
+                  $(this).fadeIn(130, function(){
+                      // var index = parseInt(Math.random() * (6 - 1 + 1) + 1);
+                      // $(this).css('background-image', "url('img/dice_point/dado_" + index + ".png')");
+                      var index = parseInt(Math.random() * (Config.DiceFace[$('.dice').index($(this))].length));
+                      //alert($('#' + Config.DiceFace[$('.dice').index($(this))][index]).css('background-image'));  
+                      $(this).css('background-image', $('#' + Config.DiceFace[$('.dice').index($(this))][index]).css('background-image'));                   
+                      }).delay(130);
+              }
+            } else
+            {
+                $(this).css('background-image', '');                   
+                      });
             }
         });
 
@@ -388,8 +399,9 @@ var dice = {
     // SelectGroup
     =============================================================*/
     SelectGroup: function() {
-        $(this).val(! $(this).val());
+        // $(this).val(! $(this).val());
         // $('.' + $(this).attr('id')).checkboxradio();
+        $(this).val( ($('.' + $(this).attr('id')).filter(':checked').length < ($('.' + $(this).attr('id')).length - $('.' + $(this).attr('id')).filter(':checked').length) ) );
         $('.' + $(this).attr('id')).checkboxradio().prop('checked', $(this).val()).checkboxradio('refresh');
         dice.ChangeDiceSetting();
     }, 
@@ -407,13 +419,14 @@ var dice = {
     ChangeDiceSetting: function() {
 
         Config.DiceFace[ActDice].splice(0, Config.DiceFace[ActDice].length);
+        /*
         if ($('.DiceItem').filter(':checked').length == 0)
         {
             alert('At least one must be selected!'); 
             // $('#d0').checkboxradio(); 
             $('#d0').checkboxradio().prop('checked', true).checkboxradio('refresh');   
         } 
-        
+        */
         $('.DiceItem').filter(':checked').each(function() {
             Config.DiceFace[ActDice][Config.DiceFace[ActDice].length] = $(this).val();
         });
