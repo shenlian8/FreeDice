@@ -181,8 +181,7 @@ var dice = {
         }      
         $('#CountOfDice').val(Config.DiceFace.length).slider('refresh');
 
-        // $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
-        this.RunDice;
+        $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
         
     },
 
@@ -249,7 +248,7 @@ var dice = {
                           
         $('.dice').each(function()
         {
-            if ($('.dice').index($(this))].length > 0) 
+            if (Config.DiceFace[$('.dice').index($(this))].length > 0) 
             {      
               var CountOfDice = parseInt(Math.random() * (8 - 1 + 1) + 1);
               for (var i=0; i<CountOfDice; i++)
@@ -264,8 +263,7 @@ var dice = {
               }
             } else
             {
-                $(this).css('background-image', '');                   
-                      });
+                $(this).css('background-image', '').delay(130);                   
             }
         });
 
@@ -302,11 +300,11 @@ var dice = {
             if ( $('.dice').last().parent().parent().attr('class') == 'ui-block-a' ) {
                 $('.dice').last().parent().parent().next().append($('.dice').first().clone());    
             } else {
-                $('#home_content').append($('.ui-grid-a').first().clone()); 
+                $('#home_content').append($('.ui-grid-a').last().clone()); 
                 $('.dice').last().remove();   
             }
         }
-        $('#DiceList').append($('.LiSetDice').first().clone());
+        $('#DiceList').append($('.LiSetDice').last().clone());
         $('.ButtonSetDice').last().attr('id', $('.ButtonSetDice').length - 1);
         $('.ButtonSetDice').last().text('Dice ' + $('.ButtonSetDice').length);
         $('.ButtonSetDice').last().on('tap', this.SetOneDice);  
