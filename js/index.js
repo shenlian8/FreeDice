@@ -224,7 +224,26 @@ var dice = {
 
     GetImage: function()
     {
-         alert('Take a photo! ');
+        var option;
+        if ($(this).val() == 'CAMERA') 
+        {
+            option = {
+                quality: 75,
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                saveToPhotoAlbum: true
+            };
+        } else
+        {
+            option = {
+                quality: 75,
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                saveToPhotoAlbum: true
+            };          
+        }
+
+         alert(JSON.stringify(option));
         navigator.camera.getPicture(function (imageURI) {
             alert('Image: ' + imageURI);
           }, 
@@ -232,12 +251,7 @@ var dice = {
           {
             alert('Failed because: ' + message);
           }, 
-          { 
-            quality: 75,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: $(this).val(),
-            saveToPhotoAlbum: true
-          });    
+          JSON.stringify(option));    
     },
         
     /*=============================================================
