@@ -89,22 +89,6 @@ var app = {
 app.initialize();
 
 /*=============================================================
-// admob config
-=============================================================*/
-var ad_units = {
-    ios : {
-        banner: 'ca-app-pub-5839194230021978/2153862973',
-        interstitial: 'ca-app-pub-5839194230021978/2153862973'
-    },
-    android : {
-        banner: 'ca-app-pub-5839194230021978/2293463778',
-        interstitial: 'ca-app-pub-5839194230021978/2293463778'
-    }
-};
-// acording to OS select the Ad ID
-var admobid = ( /(android)/i.test(navigator.userAgent) ) ? ad_units.android : ad_units.ios;
-
-/*=============================================================
 // define the default config
 =============================================================*/
 var DefaultConfig = 
@@ -135,7 +119,6 @@ var dice = {
         this.bindEvents();
         this.InitConfig();
         this.InitUI();
-        this.InitAdv();
     },
 
     /*=============================================================
@@ -198,14 +181,6 @@ var dice = {
         $('#CountOfDice').val(Config.DiceFace.length).slider('refresh');
 
         $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
-    },
-    
-    InitAdv: function()
-    {
-        if(AdMob) AdMob.createBanner( {
-          adId:admobid.banner, 
-          position:AdMob.AD_POSITION.BOTTOM_CENTER, 
-          autoShow:true} );    
     },
 
     /*=============================================================
