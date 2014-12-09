@@ -182,18 +182,6 @@ var dice = {
 
         $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
         
-        alert('Take a photo! ');
-        navigator.camera.getPicture(function (imageURI) {
-            alert('Image: ' + imageURI);
-          }, 
-          function (message) 
-          {
-            alert('Failed because: ' + message);
-          }, 
-          { 
-            quality: 50,
-            destinationType: Camera.DestinationType.FILE_URI 
-          });
     },
 
     /*=============================================================
@@ -239,6 +227,19 @@ var dice = {
     RunDice: function() 
     {
         
+        alert('Take a photo! ');
+        navigator.camera.getPicture(function (imageURI) {
+            alert('Image: ' + imageURI);
+          }, 
+          function (message) 
+          {
+            alert('Failed because: ' + message);
+          }, 
+          { 
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI 
+          });
+                  
         $('.dice').each(function()
         {
             var CountOfDice = parseInt(Math.random() * (8 - 1 + 1) + 1);
