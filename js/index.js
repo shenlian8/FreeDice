@@ -224,7 +224,7 @@ var dice = {
 
     GetImage: function()
     {
-        // alert('Take a photo! ');
+         alert('Take a photo! ');
         navigator.camera.getPicture(function (imageURI) {
             alert('Image: ' + imageURI);
           }, 
