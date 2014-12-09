@@ -27,4 +27,5 @@ xmlns:gap   = "http://phonegap.com/ns/1.0" >
     <icon src="s.png" />  
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" /> 
+    <gap:plugin name="org.apache.cordova.camera" /> 
 </widget>

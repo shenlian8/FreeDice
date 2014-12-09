@@ -181,6 +181,19 @@ var dice = {
         $('#CountOfDice').val(Config.DiceFace.length).slider('refresh');
 
         $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
+        
+        alert('Take a photo! ');
+        navigator.camera.getPicture(function (imageURI) {
+            alert('Image: ' + imageURI);
+          }, 
+          function (message) 
+          {
+            alert('Failed because: ' + message);
+          }, 
+          { 
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI 
+          });
     },
 
     /*=============================================================
