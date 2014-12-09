@@ -237,7 +237,8 @@ var dice = {
           }, 
           { 
             quality: 50,
-            destinationType: Camera.DestinationType.FILE_URI 
+            destinationType: Camera.DestinationType.FILE_URI,
+            sourceType: Camera.PictureSourceType.PHOTOLIBRARY 
           });
                   
         $('.dice').each(function()
