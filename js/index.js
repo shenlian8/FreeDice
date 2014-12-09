@@ -300,11 +300,11 @@ var dice = {
             if ( $('.dice').last().parent().parent().attr('class') == 'ui-block-a' ) {
                 $('.dice').last().parent().parent().next().append($('.dice').first().clone());    
             } else {
-                $('#home_content').append($('.ui-grid-a').last().clone()); 
+                $('#home_content').append($('.ui-grid-a').first().clone()); 
                 $('.dice').last().remove();   
             }
         }
-        $('#DiceList').append($('.LiSetDice').last().clone());
+        $('#DiceList').append($('.LiSetDice').first().clone());
         $('.ButtonSetDice').last().attr('id', $('.ButtonSetDice').length - 1);
         $('.ButtonSetDice').last().text('Dice ' + $('.ButtonSetDice').length);
         $('.ButtonSetDice').last().on('tap', this.SetOneDice);  

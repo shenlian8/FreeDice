@@ -115,7 +115,7 @@ h1 {
 }
 
 .dice {
-    background-image : url('../img/dice_point/dado_6.png'); 
+    background-image : url('../img/symbol/question.png'); 
     height:100px;                   /* dice height */
     width:100px;                   /* dice width */ 
     background-color: transparent;
