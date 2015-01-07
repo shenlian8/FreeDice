@@ -226,28 +226,35 @@ var dice = {
     {
         var option;
 
-        option = {
-            quality: 75,
-            destinationType: Camera.DestinationType.FILE_URI,
-            saveToPhotoAlbum: true
-        };
-        option.sourceType = parseInt($(this).attr('value'));
-
-         alert(JSON.stringify(option));
-         navigator.camera.getPicture(function (imageURI) {
+         
+        if ( window.cordova ) {
+            option = {
+                quality: 75,
+                destinationType: Camera.DestinationType.FILE_URI,
+                saveToPhotoAlbum: true
+            };
+            option.sourceType = parseInt($(this).attr('value'));
+            //alert(JSON.stringify(option));            
+            navigator.camera.getPicture(function (imageURI) {
             dice.AddOneCustomImage(imageURI);
-          }, 
-          function (message) 
-          {
+            }, 
+            function (message)
+            {
             alert('Failed because: ' + message);
-          }, 
-          option);     
+            }, 
+            option);                 
+        } else {
+            dice.AddOneCustomImage('img/dice_point/dado_' + ($('.GroupCustomDice').length+1) + '.png');
+        } 
+   
     },
 
     AddOneCustomImage: function(imageURI)
     {
-        alert('Image: ' + imageURI);
-        $('#custom_div').append('<label for="c0"><div id="cus0" class="DiceSetting" style="background-image : url(' + imageURI + ');"></div></label><input type="checkbox" id="c0" class="GroupNormalDice DiceItem" value="cus0">');   
+        // alert('Image: ' + imageURI);
+        var index = $('.GroupCustomDice').length;
+        $('#custom_div').append('<label for="c' + index + '"><div id="cus' + index + '" class="DiceSetting" style="background-image : url(' + imageURI + ');"></div></label><input type="checkbox" id="c' + index + '" class="GroupCustomDice DiceItem" value="cus' + index + '" >');   
+        $('.DiceItem').change(this.DiceItemChanged); 
     },
         
     /*=============================================================
@@ -438,7 +445,7 @@ var dice = {
         $('.DiceItem').filter(':checked').each(function() {
             Config.DiceFace[ActDice][Config.DiceFace[ActDice].length] = $(this).val();
         });
-        // alert(JSON.stringify(Config));
+         alert(JSON.stringify(Config));
         window.localStorage.setItem("Config", JSON.stringify(Config));   
     },
 
