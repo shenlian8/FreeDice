@@ -253,7 +253,10 @@ var dice = {
     {
         // alert('Image: ' + imageURI);
         var index = $('.GroupCustomDice').length;
-        $('#custom_div').append('<label for="c' + index + '"><div id="cus' + index + '" class="DiceSetting" style="background-image : url(' + imageURI + ');"></div></label><input type="checkbox" id="c' + index + '" class="GroupCustomDice DiceItem" value="cus' + index + '" >');   
+        $('#custom_div').append('<label for="c' + index + '"><div id="cus' + index + 
+         '" class="DiceSetting" style="background-image : url(' + imageURI + 
+         ');"></div></label><input type="checkbox" id="c' + index + 
+         '" class="GroupCustomDice DiceItem" value="cus' + index + '" >').trigger('create');   
         $('.DiceItem').change(this.DiceItemChanged); 
     },
         
