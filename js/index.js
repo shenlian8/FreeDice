@@ -98,7 +98,9 @@ var DefaultConfig =
         'DiceFace': 
         [
             ['img0', 'img1', 'img2', 'img3', 'img4', 'img5']
-        ]
+        ],
+        'CustomDice':
+        []
     }
 
 var Config;
@@ -147,7 +149,7 @@ var dice = {
     {
         // window.localStorage.clear(); 
         var ConfigString = window.localStorage.getItem("Config");
-        if (ConfigString == null) 
+        if ((ConfigString == null) )  
         {
             // alert('create new');
             window.localStorage.setItem("Config", JSON.stringify(DefaultConfig));
@@ -182,6 +184,11 @@ var dice = {
         $('#CountOfDice').val(Config.DiceFace.length).slider('refresh');
 
         $('.dice').first().css('background-image', $('#' + Config.DiceFace[0][0]).css('background-image'));
+
+        $('#custom_div').empty();
+        Config.CustomDice.forEach(function(element) {
+            dice.AddOneCustomImage(element);
+        });
         
     },
 
@@ -257,7 +264,11 @@ var dice = {
          '" class="DiceSetting" style="background-image : url(' + imageURI + 
          ');"></div></label><input type="checkbox" id="c' + index + 
          '" class="GroupCustomDice DiceItem" value="cus' + index + '" >').trigger('create');   
-        $('.DiceItem').change(this.DiceItemChanged); 
+        $('.DiceItem').change(this.DiceItemChanged);
+
+        Config.CustomDice[Config.CustomDice.length] = imageURI;
+        window.localStorage.setItem("Config", JSON.stringify(Config));
+        Config = JSON.parse(window.localStorage.getItem("Config"));          
     },
         
     /*=============================================================
