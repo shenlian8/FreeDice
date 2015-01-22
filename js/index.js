@@ -243,7 +243,10 @@ var dice = {
             option.sourceType = parseInt($(this).attr('value'));
             //alert(JSON.stringify(option));            
             navigator.camera.getPicture(function (imageURI) {
-            dice.AddOneCustomImage(imageURI);
+                dice.AddOneCustomImage(imageURI);
+                Config.CustomDice[Config.CustomDice.length] = imageURI;
+                window.localStorage.setItem("Config", JSON.stringify(Config));
+                Config = JSON.parse(window.localStorage.getItem("Config"));  
             }, 
             function (message)
             {
@@ -251,7 +254,11 @@ var dice = {
             }, 
             option);                 
         } else {
-            dice.AddOneCustomImage('img/dice_point/dado_' + ($('.GroupCustomDice').length+1) + '.png');
+            imageURI = 'img/dice_point/dado_' + ($('.GroupCustomDice').length+1) + '.png';
+            dice.AddOneCustomImage(imageURI);
+            Config.CustomDice[Config.CustomDice.length] = imageURI;
+            window.localStorage.setItem("Config", JSON.stringify(Config));
+            Config = JSON.parse(window.localStorage.getItem("Config"));              
         } 
    
     },
@@ -264,11 +271,7 @@ var dice = {
          '" class="DiceSetting" style="background-image : url(' + imageURI + 
          ');"></div></label><input type="checkbox" id="c' + index + 
          '" class="GroupCustomDice DiceItem" value="cus' + index + '" >').trigger('create');   
-        $('.DiceItem').change(this.DiceItemChanged);
-
-        Config.CustomDice[Config.CustomDice.length] = imageURI;
-        window.localStorage.setItem("Config", JSON.stringify(Config));
-        Config = JSON.parse(window.localStorage.getItem("Config"));          
+        $('.DiceItem').change(this.DiceItemChanged);        
     },
         
     /*=============================================================
