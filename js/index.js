@@ -250,7 +250,7 @@ var dice = {
             }, 
             function (message)
             {
-            alert('Failed because: ' + message);
+              alert('Failed because: ' + message);
             }, 
             option);                 
         } else {
@@ -462,7 +462,7 @@ var dice = {
         $('.DiceItem').filter(':checked').each(function() {
             Config.DiceFace[ActDice][Config.DiceFace[ActDice].length] = $(this).val();
         });
-         alert(JSON.stringify(Config));
+        // alert(JSON.stringify(Config));
         window.localStorage.setItem("Config", JSON.stringify(Config));   
     },
 
