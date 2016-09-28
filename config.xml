@@ -22,6 +22,7 @@ xmlns:gap   = "http://phonegap.com/ns/1.0" >
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/drawable-port-hdpi/screen.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/drawable-port-xhdpi/screen.png" />    
     <gap:splash gap:platform="winphone" src="splash.jpg" />
+    <preference name="phonegap-version" value="cli-6.3.0" />
     <preference name="SplashScreen" value="screen" />  
     <preference name="splash-screen-duration" value="15000"/>   
     <icon src="s.png" />  
